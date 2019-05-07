@@ -18,4 +18,4 @@ branches:
 
 #Build and perform release (if needed)
 script:
-  - ./gradlew build -s
+  - ./gradlew build -s && ./gradlew ciPerformRelease

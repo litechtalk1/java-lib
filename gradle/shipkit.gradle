@@ -1,0 +1,26 @@
+shipkit {
+    gitHub.repository = "litechtalk1/java-lib"
+    gitHub.readOnlyAuthToken = "d160f29ac7a79e4e8881ec28109945ac04c19188"
+    gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
+}
+
+allprojects {
+    plugins.withId("org.shipkit.bintray") {
+
+        //Bintray configuration is handled by JFrog Bintray Gradle Plugin
+        //For reference see the official documentation: https://github.com/bintray/gradle-bintray-plugin
+        bintray {
+
+            key = System.getenv("BINTRAY_API_KEY")
+            publish = true
+
+            pkg {
+                repo = 'maven'
+                user = 'litechtalk1'
+                name = 'java-lib'
+                licenses = ['Apache-2.0']
+                labels = ['continuous delivery', 'release automation', 'shipkit']
+            }
+        }
+    }
+}
